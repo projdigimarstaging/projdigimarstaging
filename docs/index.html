@@ -85,21 +85,13 @@
                         <h1 class="my-4 lead">B-Shop</h1>
                         <div id="headingOne">
                             <h5 class="mb-0">
-                                <button class="btn bg-pink text-white btn-block " data-toggle="collapse" data-target="#collapseOne"
-                                    aria-expanded="false" aria-controls="collapseOne">
+                                <button class="btn bg-pink text-white btn-block " data-toggle="collapse" data-target="#collapse-category"
+                                    aria-expanded="false" aria-controls="collapse-category">
                                     Kategori
                                 </button>
                             </h5>
                         </div>
-                        <div class="list-group collapse" id="collapseOne">
-                            <a href="#" class="bg-pink  list-group-item active">Category 1</a>
-                            <a href="#" class="text-pink list-group-item">Category 2</a>
-                            <a href="#" class="text-pink list-group-item">Category 3</a>
-                            <a href="#" class="text-pink list-group-item">Category 4</a>
-                            <a href="#" class="text-pink list-group-item">Category 5</a>
-                            <a href="#" class="text-pink list-group-item">Category 6</a>
-                            <a href="#" class="text-pink list-group-item">Category 7</a>
-                        </div>
+                        <comp-category></comp-category>
                     </div>
                     <div class="recommended">
                         <h2 class="my-4 lead">Recommended</h2>
@@ -146,138 +138,9 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    <div class="row pt-lg-5" id="product-container">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="img/item-1.jpeg" alt="Item 1">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Item One</a>
-                                    </h4>
-                                    <h5>$74.99</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Libero architecto nisi iure
-                                        optio aperiam ea obcaecati repellendus facilis, delectus aut doloribus eos quasi
-                                        enim recusandae earum aspernatur, alias sint nobis?</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="img/item-2.jpeg" alt="Item Two">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Item Two</a>
-                                    </h4>
-                                    <h5>$54.99</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Corporis sit officia eum suscipit
-                                        debitis vero nihil id consequatur, illo, mollitia labore voluptatum saepe ullam
-                                        quaerat
-                                        at repudiandae inventore, iusto placeat.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="img/item-3.jpeg" alt="Item 3">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Item Three</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                                        et pariatur ratione sit
-                                        recusandae. Reprehenderit repellat, odit consectetur quo molestiae accusantium
-                                        consequatur,
-                                        adipisci dolores ipsam neque iure vitae ex velit?</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="img/item-3.jpeg" alt="Item 4">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Item Four</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit
-                                        unde provident iure,
-                                        quisquam deserunt et cumque quos incidunt, magni saepe libero magnam voluptatum
-                                        minus
-                                        aliquid, fugiat eaque consectetur doloribus sequi!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="img/item-2.jpeg" alt="Item Five">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Item Five</a>
-                                    </h4>
-                                    <h5>$99.99</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Reiciendis quos accusamus laborum
-                                        quis recusandae, maxime adipisci, qui, magnam eaque deserunt eos officia veniam
-                                        dolores!
-                                        Reiciendis labore repellat quasi atque quam!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="img/item-1.jpeg" alt="Item 6">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Item Six</a>
-                                    </h4>
-                                    <h5>$1994.99</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Corporis eligendi quod explicabo
-                                        expedita, commodi possimus nobis cum, rerum adipisci veniam aliquid impedit ex
-                                        quas
-                                        maxime porro. Voluptatibus officiis delectus saepe!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--div class="row pt-lg-5" id="product-container"-->
+                        <comp-product-list></comp-product-list>
+                    <!--div-->
                 </div>
             </div>
         </div>
@@ -338,12 +201,13 @@
     <script src="js/script.js"></script>
     <script src="js/helper/currency_formatter.js"></script>
     <script src="js/helper/wa-generator.js"></script>
+    <script src="js/model/base-model.js"></script>
+    <script src="js/model/product.js"></script>
+    <script src="js/model/category.js"></script>
     <script src="js/component/component.js"></script>
     <script src="js/component/product.js"></script>
     <script src="js/component/product-list.js"></script>
-    <script src="js/template/prouct-card.js"></script>
-    <script src="js/model/base-model.js"></script>
-    <script src="js/model/product.js"></script>
+    <script src="js/component/category.js"></script>
     <script src="js/index.js"></script>
 </body>
 

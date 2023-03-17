@@ -12,7 +12,6 @@ class Component extends HTMLElement{
             this.attributes.removeNamedItem(item.name)
         })
 
-        console.log(this.state)
         this.onCreateState()
     }
 
@@ -37,7 +36,6 @@ class Component extends HTMLElement{
     connectedCallback(){
         this.onConnected()
         this.render()
-        console.log(this)
     }
 
     createState(state){

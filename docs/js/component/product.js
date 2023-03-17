@@ -6,6 +6,7 @@ class ProductComponent extends Component{
     onCreateState(){
         this.id = this.state.product.codeMaster + "-card"
         this.state.variant = 0
+        this.state.jumlah = 1
     }
 
     changeVariant(variant){
@@ -13,15 +14,30 @@ class ProductComponent extends Component{
         this.render();
     }
 
+    inc(){
+        this.state.jumlah++;
+        this.render();
+    }
+
+    dec(){
+        if(this.state.jumlah>1)
+            this.state.jumlah--;
+        this.render()
+    }
+
+    buy(){
+        window.open(productOrderWaGenerator(this.state.product.variant[this.state.variant], this.state.no_wa, this.state.jumlah), '_blank')
+    }
+
     template(){
         return `
             <div class="card h-100">
-            <a href="${productOrderWaGenerator(this.state.product.variant[this.state.variant], this.state.no_wa)}" target="_blank">
+            <a href="${productOrderWaGenerator(this.state.product.variant[this.state.variant], this.state.no_wa, this.state.jumlah)}" target="_blank">
                 <img class="card-img-top" src="${this.state.product.variant[this.state.variant].img}" alt="Item 1">
             </a>
             <div class="card-body">
                 <h5 class="card-title">
-                    <a class="text-pink" href="${productOrderWaGenerator(this.state.product.variant[this.state.variant], this.state.no_wa)}" target="_blank">${this.state.product.variant[this.state.variant].displayName}</a>
+                    <a class="text-pink" href="${productOrderWaGenerator(this.state.product.variant[this.state.variant], this.state.no_wa, this.state.jumlah)}" target="_blank">${this.state.product.variant[this.state.variant].displayName}</a>
                 </h5>
                 ${(()=>{
                         if(this.state.product.variant[this.state.variant].discountNominal != undefined && this.state.product.variant[this.state.variant].discountNominal > 0)
@@ -32,9 +48,9 @@ class ProductComponent extends Component{
                 <div>
                 ${(()=>{
                     if(this.state.product.variant.length>1)
-                        return `<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        return `<div class="btn-group form-inline" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
-                            <button id="${this.state.product.codeMaster}-variant-dropdown" type="button" class="btn bg-pink text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button id="${this.state.product.codeMaster}-variant-dropdown" type="button" class="btn btn-sm bg-pink text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 variant
                             </button>
                             <div class="dropdown-menu" aria-labelledby="${this.state.product.codeMaster}-variant-dropdown">
@@ -47,7 +63,13 @@ class ProductComponent extends Component{
                         </div>
                     </div>`
                 })()}
+                    <div class="btn-group" role="group" aria-label="jumlah-product">
+                        <button type="button" class="btn btn-secondary btn-sm bg-pink" onClick="document.querySelector('#${this.id}').dec()">-</button>
+                        <button type="button" class="btn btn-secondary btn-sm bg-white text-pink disabled">${this.state.jumlah}</button>
+                        <button type="button" class="btn btn-secondary btn-sm bg-pink" onClick="document.querySelector('#${this.id}').inc()">+</button>
+                    </div>   
                 </div>
+
                 <div>
                     <br/>
                     <a class="text-pink" data-toggle="collapse" href="${`#${this.state.product.variant[this.state.variant].code}-desc`}" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -59,7 +81,9 @@ class ProductComponent extends Component{
                 </div>
             </div>
             <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            <div class="btn-group" role="group" aria-label="jumlah-product">
+                <button type="button" class="btn btn-sm bg-pink text-white" onClick="document.querySelector('#${this.id}').buy()">Beli Sekarang</button>
+            </div> 
             </div>
         </div>
     `
