@@ -1,22 +1,8 @@
 class Category extends BaseModel{
-    static data = [
-        {
-            "id":0,
-            "displayName":"All"
-        },
-        {
-            "id":1,
-            "displayName":"Lipstik"
-        },
-        {
-            "id":2,
-            "displayName":"Bedak"
-        }
-    ]
-
+    static data = null
 
     static async init(){
-        if(!Category.data)
-            Category.data = await BaseModel.init("db/categories.json")
+        if(Category.data == null)
+            Category.data = await (await fetch('db/categories.json')).json()
     }
 }

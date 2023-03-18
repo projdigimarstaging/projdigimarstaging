@@ -2,17 +2,23 @@ class CategoryComponent extends Component{
     choosenCategory = 0
     constructor(){
         super()
-        this.id = "category-comp"
+    }
+
+    onConnected(){
+        Category.init().then(()=>{
+            this.render();
+        })
     }
     
     changeCategory(category){
         this.choosenCategory = category;
         this.render();
-        console.log(this.choosenCategory)
         document.querySelector('#productlist-comp').changeCategory(category);
     }
 
     template(){
+        if(Category.data == null)
+            return `<div></div>`
         let data = Category.data;
         return `
         <div class="list-group collapse" id="collapse-category">

@@ -5,6 +5,8 @@ class Component extends HTMLElement{
         let att = []
         for (var i = 0; i < this.attributes.length; i++) {
             var attrib = this.attributes[i];
+            if(attrib.name == "id")
+                continue
             this.state[attrib.name] = JSON.parse(attrib.value)
             att.push(attrib)
         }
@@ -53,7 +55,7 @@ class Component extends HTMLElement{
     }
 
     template(){
-
+        return ``
     }
 }
 

@@ -34,49 +34,7 @@
 
 <body>
     <div class="loader"></div>
-    <header id="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#" id="header-logo">
-                    <img src="https://raw.githubusercontent.com/orbitthemes/Orbit-Themes/master/assets/logo.png"
-                        class="img-fluid" width="200" alt="Orbit Themes">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation"
-                    aria-controls="top-navigation" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="top-navigation">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-success ml-lg-3" href="#">
-                                <i class="fa fa-cart-plus"></i> Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="#">
-                                <i class="fa fa-sign-in"></i> Sign In</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <comp-header></comp-header>
     <main id="main" role="main">
         <div class="container">
             <div class="row">
@@ -91,7 +49,7 @@
                                 </button>
                             </h5>
                         </div>
-                        <comp-category></comp-category>
+                        <comp-category id="category-comp"></comp-category>
                     </div>
                     <div class="recommended">
                         <h2 class="my-4 lead">Recommended</h2>
@@ -139,7 +97,7 @@
                         </a>
                     </div>
                     <!--div class="row pt-lg-5" id="product-container"-->
-                        <comp-product-list></comp-product-list>
+                        <comp-product-list id="productlist-comp"></comp-product-list>
                     <!--div-->
                 </div>
             </div>
@@ -189,6 +147,7 @@
     <script src="dist/jquery/jquery.min.js"></script>
     <script src="dist/popper/popper.min.js" integrity=""></script>
     <script src="dist/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/main.min.js"></script>
     <!--script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -198,9 +157,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script-->
-    <script src="js/script.js"></script>
     <script src="js/helper/currency_formatter.js"></script>
     <script src="js/helper/wa-generator.js"></script>
+    <script src="js/helper/store.js"></script>
     <script src="js/model/base-model.js"></script>
     <script src="js/model/product.js"></script>
     <script src="js/model/category.js"></script>
@@ -208,6 +167,8 @@
     <script src="js/component/product.js"></script>
     <script src="js/component/product-list.js"></script>
     <script src="js/component/category.js"></script>
+    <script src="js/component/cart-button.js"></script>
+    <script src="js/component/header.js"></script>
     <script src="js/index.js"></script>
 </body>
 

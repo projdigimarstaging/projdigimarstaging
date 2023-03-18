@@ -6,12 +6,15 @@ class ProdcutListComponent extends Component
     }
 
     onConnected(){
-        this.id = "productlist-comp"
+        Product.init().then(()=>{
+            this.render();
+        })
     }
 
     template(){
+        if(Product.data == null)
+            return `<h4 class="text-center text-pink">Loading Database...</h4>`
         let no_wa = 6281317980678
-        console.log(this.choosenCategory)
         if(this.choosenCategory > 0)
             var productInCategory = Product.data.filter((product) => product.category == this.choosenCategory);
         else
@@ -21,13 +24,11 @@ class ProdcutListComponent extends Component
             return `
             <div class="row pt-lg-5" id="product-container">
                     ${(()=>{
-                        let str =  productInCategory.map((product)=>{
+                        return productInCategory.map((product)=>{
                             return `<div class="col-lg-4 col-md-6 mb-4">
                                         <comp-product product='${JSON.stringify(product)}' no_wa="${JSON.stringify(no_wa)}"></comp-product>
                                     </div>`
                         }).join("")
-                        console.log(str)
-                        return str
                     })()}
             </div>
             `

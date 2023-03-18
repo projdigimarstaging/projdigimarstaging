@@ -29,6 +29,28 @@ class ProductComponent extends Component{
         window.open(productOrderWaGenerator(this.state.product.variant[this.state.variant], this.state.no_wa, this.state.jumlah), '_blank')
     }
 
+    addToCart(){
+        let store = Store.get()
+        if(!store.cart)
+            store.cart = {}
+        const product = this.state.product.variant[this.state.variant]
+        if(!store.cart[product.code])
+            store.cart[product.code] = {
+                product:product,
+                jumlah:this.state.jumlah
+            }
+        else
+            store.cart[product.code].jumlah += this.state.jumlah;
+        
+        Store.set(store)
+        this.state.jumlah = 1;
+        this.render()
+
+        for(let cart of document.getElementsByTagName("comp-cart")){
+            cart.render()
+        }
+    }
+
     template(){
         return `
             <div class="card h-100">
@@ -65,7 +87,7 @@ class ProductComponent extends Component{
                 })()}
                     <div class="btn-group" role="group" aria-label="jumlah-product">
                         <button type="button" class="btn btn-secondary btn-sm bg-pink" onClick="document.querySelector('#${this.id}').dec()">-</button>
-                        <button type="button" class="btn btn-secondary btn-sm bg-white text-pink disabled">${this.state.jumlah}</button>
+                        <button type="button" class="btn btn-secondary btn-sm bg-white text-dark disabled">${this.state.jumlah}</button>
                         <button type="button" class="btn btn-secondary btn-sm bg-pink" onClick="document.querySelector('#${this.id}').inc()">+</button>
                     </div>   
                 </div>
@@ -81,9 +103,22 @@ class ProductComponent extends Component{
                 </div>
             </div>
             <div class="card-footer">
-            <div class="btn-group" role="group" aria-label="jumlah-product">
                 <button type="button" class="btn btn-sm bg-pink text-white" onClick="document.querySelector('#${this.id}').buy()">Beli Sekarang</button>
-            </div> 
+                <button type="button" class="btn btn-sm bg-pink text-white" onClick="document.querySelector('#${this.id}').addToCart()">
+                    <i class="fa fa-cart-plus">
+                    </i>
+                        ${(()=>{
+                            const store = Store.get();
+                            if(!store.cart)
+                                return ``
+                            const product = this.state.product.variant[this.state.variant];
+                            if(!store.cart.hasOwnProperty(product.code))
+                                return ``
+                            return `<sup>
+                                    <span class="badge">${store.cart[product.code].jumlah}</span>
+                                </sup>`
+                        })()}
+                </button>
             </div>
         </div>
     `
