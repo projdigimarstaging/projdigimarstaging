@@ -33,15 +33,18 @@ class ProductComponent extends Component{
         let store = Store.get()
         if(!store.cart)
             store.cart = {}
-        const product = this.state.product.variant[this.state.variant]
-        if(!store.cart[product.code])
-            store.cart[product.code] = {
-                product:product,
-                jumlah:this.state.jumlah
-            }
+        const cartInfo = {
+            codeMaster:this.state.product.codeMaster,
+            variant:this.state.variant,
+            product:this.state.product.variant[this.state.variant],
+            jumlah:this.state.jumlah
+        }
+
+        if(!store.cart[cartInfo.product.code])
+            store.cart[cartInfo.product.code] = cartInfo
         else
-            store.cart[product.code].jumlah += this.state.jumlah;
-        
+            store.cart[cartInfo.product.code].jumlah += this.state.jumlah;
+    
         Store.set(store)
         this.state.jumlah = 1;
         this.render()
