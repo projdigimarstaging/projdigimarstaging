@@ -3,6 +3,6 @@ class Category extends BaseModel{
 
     static async init(){
         if(Category.data == null)
-            Category.data = await (await fetch('db/categories.json')).json()
+            Category.data = await (await fetch('db/categories.json', {cache: "reload"})).json()
     }
 }

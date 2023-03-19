@@ -3,6 +3,6 @@ class Product extends BaseModel{
 
     static async init(){
         if(Product.data == null)
-            Product.data = await (await fetch("db/products.json")).json()
+            Product.data = await (await fetch("db/products.json", {cache: "reload"})).json()
     }
 }

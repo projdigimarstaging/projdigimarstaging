@@ -1,7 +1,7 @@
 class FooterComponent extends Component{
     template(){
         return `
-        <footer id="footer">
+        <footer id="footer" class="mt-auto">
         <p class="copyright">Made with 
             <i class="fa fa-heart"></i> By IT Team ©
             <span id="currentYear">2023</span> All Rights Reserved.

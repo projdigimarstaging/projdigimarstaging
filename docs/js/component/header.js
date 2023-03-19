@@ -3,9 +3,10 @@ class HeaderComponent extends Component{
         return `<header id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#" id="header-logo">
-                    <img src="https://raw.githubusercontent.com/orbitthemes/Orbit-Themes/master/assets/logo.png"
-                        class="img-fluid" width="200" alt="Orbit Themes">
+                <a class="navbar-brand" href="#" id="header-logo" title="Logo">
+                    <img src="img/logo.png"
+                        class="img-fluid" style="height:30px;" alt="Orbit Themes">
+                    <span class="text-pink">PSHOP</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation"
                     aria-controls="top-navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,12 +14,12 @@ class HeaderComponent extends Component{
                 </button>
                 <div class="collapse navbar-collapse" id="top-navigation">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
+                        <li class="nav-item active" title="Toko">
+                            <a class="nav-link" href="/">Shop
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
                         <li class="nav-item">
@@ -29,12 +30,12 @@ class HeaderComponent extends Component{
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
+                        </li-->
+                        <li class="nav-item" title="keranjang belanja">
                             <comp-cart id="comp-cart"></comp-cart>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="#">
+                            <a class="btn btn-secondary ml-lg-3" title="Belum ada implementasi">
                                 <i class="fa fa-sign-in"></i> Sign In</a>
                         </li>
                     </ul>

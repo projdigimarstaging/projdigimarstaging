@@ -78,3 +78,37 @@
     z-index: 9999;
     background-size: 4rem;
   }
+
+  #footer {
+    background: #343a40;
+    text-align: center;
+    z-index: 10;
+    padding: 30px 0;
+    color: #fff;
+  }
+  
+  #footer p.copyright a {
+    color: #6deaff;
+    font-weight: 700;
+  }
+  
+  #footer .social a {
+    padding: 0 5px;
+    text-decoration: none;
+  }
+  
+  #footer .social a i.fa {
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+  #footer .social a i.fa:hover, #footer .social a i.fa:active, #footer .social a i.fa:focus {
+    color: #fff;
+  }
+  
+  #footer .social a:hover i.fa {
+    color: #fff;
+  }

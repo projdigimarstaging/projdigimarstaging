@@ -1,18 +1,34 @@
+function tryParseJSONObject (jsonString){
+    try {
+        var o = JSON.parse(jsonString);
+
+        // Handle non-exception-throwing cases:
+        // Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
+        // but... JSON.parse(null) returns null, and typeof null === "object", 
+        // so we must check for that, too. Thankfully, null is falsey, so this suffices:
+        if (o && typeof o === "object") {
+            return o;
+        }
+    }
+    catch (e) { }
+
+    return o;
+};
+
 class Component extends HTMLElement{
     constructor(){
         super()
-        this.state = {}
         let att = []
         for (var i = 0; i < this.attributes.length; i++) {
             var attrib = this.attributes[i];
             if(attrib.name == "id")
                 continue
-            this.state[attrib.name] = JSON.parse(attrib.value)
+            this[attrib.name] = tryParseJSONObject(attrib.value)
             att.push(attrib)
         }
-        att.forEach((item)=>{
+        /*att.forEach((item)=>{
             this.attributes.removeNamedItem(item.name)
-        })
+        })*/
 
         this.onCreateState()
     }
