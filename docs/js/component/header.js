@@ -15,7 +15,7 @@ class HeaderComponent extends Component{
                 <div class="collapse navbar-collapse" id="top-navigation">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active" title="Toko">
-                            <a class="nav-link" href="/">Shop
+                            <a class="nav-link" href="index.html">Shop
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
