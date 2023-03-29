@@ -10,12 +10,20 @@
     color:white !important;
 }
 
+.text-deeppink{
+  color:deeppink !important;
+}
+
 .bg-pink {
     background-color: hotpink !important;
 }
 
 .bg-lightpink {
     background-color: lightpink !important;
+}
+
+.bg-deeppink{
+  background-color: deeppink !important;
 }
 
 .list-group-item{

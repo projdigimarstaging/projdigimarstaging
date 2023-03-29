@@ -21,7 +21,9 @@ grand total : ${(()=>{
     if(product.discountNominal)
         return currencyFormatter.format(product.discountNominal* jumlah) 
     return currencyFormatter.format(product.price* jumlah) 
-})()}`;
+})()}
+HARGA YANG TERTERA BELUM TERMASUK ONGKIR!!
+`;
 
     return `http://wa.me/${no_wa}?text=${encodeURIComponent(str)}`;
 }
@@ -47,6 +49,7 @@ grand total :  ${(()=>{
             return cartInfo.product.discountNominal? cartInfo.product.discountNominal * cartInfo.jumlah : cartInfo.product.price * cartInfo.jumlah;
         }).reduce((i, j)=>{return i + j}, 0))
     })()}
+HARGA YANG TERTERA BELUM TERMASUK ONGKIR!!
     `
 
     return `http://wa.me/${no_wa}?text=${encodeURIComponent(str)}`;

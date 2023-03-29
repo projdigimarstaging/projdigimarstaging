@@ -6,7 +6,7 @@ class HeaderComponent extends Component{
                 <a class="navbar-brand" href="#" id="header-logo" title="Logo">
                     <img src="img/logo.png"
                         class="img-fluid" style="height:30px;" alt="Orbit Themes">
-                    <span class="text-pink">PSHOP</span>
+                    <span class="text-pink">MA-SHOP</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation"
                     aria-controls="top-navigation" aria-expanded="false" aria-label="Toggle navigation">

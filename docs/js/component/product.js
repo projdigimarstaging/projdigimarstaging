@@ -1,4 +1,7 @@
 class ProductComponent extends Component{
+    static GRANDPARENT_DESC_HIDE_CLASS = "col-lg-4 col-md-6 mb-4";
+    static GRANDPARENT_DESC_SHOW_CLASS = "col-lg-12 col-md-12 mb-4 ";
+
     constructor(state){
         super()
     }
@@ -7,6 +10,7 @@ class ProductComponent extends Component{
         this.id = this.product.codeMaster + "-card"
         this.variant = 0
         this.jumlah = 1
+        this.showdesc = false
     }
 
     changeVariant(variant){
@@ -54,6 +58,12 @@ class ProductComponent extends Component{
         }
     }
 
+    toggleDesc(){
+        this.showdesc = !this.showdesc;
+        super.parentNode.className = this.showdesc ? ProductComponent.GRANDPARENT_DESC_SHOW_CLASS : ProductComponent.GRANDPARENT_DESC_HIDE_CLASS;
+        this.render()
+    }
+
     template(){
         return `
             <div class="card h-100">
@@ -62,7 +72,7 @@ class ProductComponent extends Component{
             </a>
             <div class="card-body">
                 <h5 class="card-title">
-                    <a class="text-pink" href="${productOrderWaGenerator(this.product.variant[this.variant], this.no_wa, this.jumlah)}" target="_blank">${this.product.variant[this.variant].displayName}</a>
+                    <a class="text-deeppink" href="${productOrderWaGenerator(this.product.variant[this.variant], this.no_wa, this.jumlah)}" target="_blank">${this.product.variant[this.variant].displayName}</a>
                 </h5>
                 ${(()=>{
                         if(this.product.variant[this.variant].discountNominal != undefined && this.product.variant[this.variant].discountNominal > 0)
@@ -87,6 +97,11 @@ class ProductComponent extends Component{
                             </div>
                         </div>
                     </div>`
+                    else return `<div class="btn-group form-inline" role="group" aria-label="Button group with nested dropdown">
+                        <button id="${this.product.codeMaster}-variant-dropdown" type="button" class="btn btn-sm btn-secondary text-white dropdown-toggle">
+                                    variant
+                        </button>
+                    </div>`
                 })()}
                     <div class="btn-group" role="group" aria-label="jumlah-product">
                         <button type="button" class="btn btn-secondary btn-sm bg-pink" onClick="document.querySelector('#${this.id}').dec()">-</button>
@@ -97,17 +112,17 @@ class ProductComponent extends Component{
 
                 <div>
                     <br/>
-                    <a class="text-pink" data-toggle="collapse" href="${`#${this.product.variant[this.variant].code}-desc`}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="text-pink" data-toggle="collapse" onClick="document.querySelector('#${this.id}').toggleDesc()" role="button" aria-expanded="false" aria-controls="collapseExample">
                     deskripsi
                     </a>
-                    <div class="collapse" id="${`${this.product.variant[this.variant].code}-desc`}">
+                    <div class="${(()=>{return this.showdesc ? "collapse show" : "collapse" })()}" id="${`${this.product.variant[this.variant].code}-desc`}">
                         <p class="card-text">${this.product.variant[this.variant].description}</p>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button type="button" class="btn btn-sm bg-pink text-white" onClick="document.querySelector('#${this.id}').buy()">Beli Sekarang</button>
-                <button type="button" class="btn btn-sm bg-pink text-white" onClick="document.querySelector('#${this.id}').addToCart()">
+                <button type="button" class="btn btn-sm bg-deeppink text-white" onClick="document.querySelector('#${this.id}').buy()">Beli Sekarang</button>
+                <button type="button" class="btn btn-sm bg-deeppink text-white" onClick="document.querySelector('#${this.id}').addToCart()">
                     <i class="fa fa-cart-plus">
                     </i>
                         ${(()=>{
