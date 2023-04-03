@@ -6,7 +6,7 @@ class HeaderComponent extends Component{
                 <a class="navbar-brand" href="/index.html" id="header-logo" title="Logo">
                     <img src="img/logo.png"
                         class="img-fluid" style="height:30px;" alt="Orbit Themes">
-                    <span class="text-pink">KEMAYOU</span>
+                    <span class="text-pink">KEY/MY/YOU</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation"
                     aria-controls="top-navigation" aria-expanded="false" aria-label="Toggle navigation">
