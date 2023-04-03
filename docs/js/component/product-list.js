@@ -9,12 +9,16 @@ class ProdcutListComponent extends Component
         Product.init().then(()=>{
             this.render();
         })
+
+        NOWA.init().then(()=>{
+            this.render();
+        })
     }
 
     template(){
-        if(Product.data == null)
+        if(Product.data == null || NOWA.data == null)
             return `<h4 class="text-center text-pink">Loading Database...</h4>`
-        let no_wa = 6281317980678
+        let no_wa = parseInt(NOWA.data[0])//6281317980678
         if(this.choosenCategory > 0)
             var productInCategory = Product.data.filter((product) => product.category == this.choosenCategory);
         else

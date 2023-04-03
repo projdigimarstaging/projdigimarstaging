@@ -12,7 +12,7 @@ function tryParseJSONObject (jsonString){
     }
     catch (e) { }
 
-    return o;
+    return jsonString;
 };
 
 class Component extends HTMLElement{

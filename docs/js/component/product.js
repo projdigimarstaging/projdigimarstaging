@@ -1,6 +1,6 @@
 class ProductComponent extends Component{
     static GRANDPARENT_DESC_HIDE_CLASS = "col-lg-4 col-md-6 mb-4";
-    static GRANDPARENT_DESC_SHOW_CLASS = "col-lg-12 col-md-12 mb-4 ";
+    static GRANDPARENT_DESC_SHOW_CLASS = "col-lg-8 col-md-8 mb-4 ";
 
     constructor(state){
         super()
@@ -37,17 +37,23 @@ class ProductComponent extends Component{
         let store = Store.get()
         if(!store.cart)
             store.cart = {}
+
         const cartInfo = {
             codeMaster:this.product.codeMaster,
             variant:this.variant,
             product:this.product.variant[this.variant],
-            jumlah:this.jumlah
+            jumlah:this.jumlah,
+            img:this.product.img
         }
+
+        console.log(cartInfo.img)
 
         if(!store.cart[cartInfo.product.code])
             store.cart[cartInfo.product.code] = cartInfo
         else
             store.cart[cartInfo.product.code].jumlah += this.jumlah;
+
+        console.log(store.cart)
     
         Store.set(store)
         this.jumlah = 1;
@@ -68,7 +74,13 @@ class ProductComponent extends Component{
         return `
             <div class="card h-100">
             <a href="${productOrderWaGenerator(this.product.variant[this.variant], this.no_wa, this.jumlah)}" target="_blank">
-                <img class="card-img-top" src="${this.product.variant[this.variant].img}" alt="Item 1">
+                ${(()=>{
+                    if(this.product.img.length > 1)
+                        return `
+                            <comp-carousel caroselid="${this.product.codeMaster}-carousel" imgclass="card-img-top" dataimg='${JSON.stringify(this.product.img)}' caroselstyle="margin-top:0!important; margin-bottom:0!important;"></com-carousel>
+                        `
+                    else return `<img class="card-img-top" src="${this.product.img[0]}" alt="Item 1"></img>`
+                })()}
             </a>
             <div class="card-body">
                 <h5 class="card-title">
@@ -82,7 +94,7 @@ class ProductComponent extends Component{
                 }
                 <div>
                 ${(()=>{
-                    if(this.product.variant.length>1)
+                    //if(this.product.variant.length>1)
                         return `<div class="btn-group form-inline" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
                             <button id="${this.product.codeMaster}-variant-dropdown" type="button" class="btn btn-sm bg-pink text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -97,11 +109,11 @@ class ProductComponent extends Component{
                             </div>
                         </div>
                     </div>`
-                    else return `<div class="btn-group form-inline" role="group" aria-label="Button group with nested dropdown">
+                    /*else return `<div class="btn-group form-inline" role="group" aria-label="Button group with nested dropdown">
                         <button id="${this.product.codeMaster}-variant-dropdown" type="button" class="btn btn-sm btn-secondary text-white dropdown-toggle">
                                     variant
                         </button>
-                    </div>`
+                    </div>`*/
                 })()}
                     <div class="btn-group" role="group" aria-label="jumlah-product">
                         <button type="button" class="btn btn-secondary btn-sm bg-pink" onClick="document.querySelector('#${this.id}').dec()">-</button>
@@ -129,7 +141,7 @@ class ProductComponent extends Component{
                             const store = Store.get();
                             if(!store.cart)
                                 return ``
-                            const product = this.product.variant[this.variant];
+                            let product = this.product.variant[this.variant];
                             if(!store.cart.hasOwnProperty(product.code))
                                 return ``
                             return `<sup>

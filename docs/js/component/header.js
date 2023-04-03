@@ -3,10 +3,10 @@ class HeaderComponent extends Component{
         return `<header id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#" id="header-logo" title="Logo">
+                <a class="navbar-brand" href="/index.html" id="header-logo" title="Logo">
                     <img src="img/logo.png"
                         class="img-fluid" style="height:30px;" alt="Orbit Themes">
-                    <span class="text-pink">MA-SHOP</span>
+                    <span class="text-pink">KEMAYOU</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation"
                     aria-controls="top-navigation" aria-expanded="false" aria-label="Toggle navigation">

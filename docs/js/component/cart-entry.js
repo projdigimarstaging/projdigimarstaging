@@ -38,11 +38,11 @@ class CartEntryComponent extends Component{
     }
     
     template(){
+        console.log(this.attributes)
         return `
         <div class="card h-100">
-        <a
-            target="_blank">
-            <img class="card-img-top" src="${this.product.img}" alt="Item 1">
+        <a target="_blank">
+            <img class="card-img-top" src="${this.img[0]}" alt="Item 1">
         </a>
         <div class="card-body">
             <h5 class="card-title">

@@ -21,7 +21,7 @@ class CartListComponent extends Component
                         const cartInfo = item[1]
                         return `
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <comp-cart-entry id="${cartInfo.product.code}" product='${JSON.stringify(cartInfo.product)}' jumlah="${cartInfo.jumlah}" variant="${cartInfo.variant}"></comp-cart-entry>
+                            <comp-cart-entry id="${cartInfo.product.code}" product='${JSON.stringify(cartInfo.product)}' jumlah="${cartInfo.jumlah}" variant="${cartInfo.variant}" img='${JSON.stringify(cartInfo.img)}'></comp-cart-entry>
                         </div>
                         `
                     }).join("")

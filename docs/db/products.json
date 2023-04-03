@@ -2,12 +2,12 @@
     {
         "codeMaster": "Make_Up",
         "category": 1,
+        "img": ["img/paket-1.jpeg"],
         "variant": [
             {
                 "code": "paket_kosmetik_maybelline_4_in_1",
-                "variantName": "asd",
+                "variantName": "4 in 1",
                 "displayName": "Paket Kosmetik Maybelline 4 in 1",
-                "img": "img/paket-1.jpeg",
                 "price": 120000,
                 "discountNominal": 99000,
                 "description": "<b>Paket hemat kosmetik maybelline</b><br/>Isi Paket:<br/>-Mascara hypercurl maybelline<br/>-Eyeliner Maybelline<br/>-Pensil Alis Maybelline/ Pensil alis Viva (coklat)<br/>-Bedak maybelline 2in1 Super exquisite"
@@ -18,12 +18,12 @@
     {
         "codeMaster": "lip_cream",
         "category": 2,
+        "img": ["img/matte-ink-1.jpeg", "img/matte-ink-2.jpeg", "img/matte-ink-3.jpeg", "img/matte-ink-4.jpeg"],
         "variant": [
             {
                 "code": "paket_lip_cream_maybelline_super_stay_mate_ink_paket_beli_1_dapat_3",
-                "variantName": "Matte INK",
-                "displayName": "Superstay Matte Ink CITY ‖ Rogue Reds Lip Cream",
-                "img": "img/matte-ink-1.jpeg",
+                "variantName": "Warna Acak",
+                "displayName": "Superstay Matte Ink CITY",
                 "price": 110000,
                 "discountNominal":90000,
                 "description": "<b>Maybelline Super Stay Matte Ink CITY || Rogue Reds Lip Cream</b> 💋<br/><br/>✔️No BPOM dalam kemasan<br/>✔️Exp date terbaru<br/><br/>Super Stay Matte Ink ini adalah liquid lipstick matte yang dikombinasikan dengan ink formula dan menghasilkan warna-warna lipstick yang unik dan juga intens. Terkadang lipstick yang kita gunakan itu mudah hilang, apa lagi kalau digunakan untuk minum dan makan. Tapi tidak dengan lipstick ini, selain tahan lama hingga 16 jam. Formulanya yang kuat membuat Super Stay Matte Ink ini tidak mudah hilang dan juga tidak mudah membekas dimana-mana, walau digunakan untuk minum atau makan sekalipun lipstick ini tidak akan hilang. <br/><br/>Bahkan jika mau menghilangkannya, sista setidaknya harus menyiapkan waterpoof makeup remover supaya lipstick Super Stay Matte Ink ini bisa hilang dengan sempurna.<br/><br/>Cara penggunaannya pun juga gampang ya girls, yang pertama adalah aplikasikan Super Stay Matte Ink warna favorit kamu ke bagian tengah bibir kemudian bagian atas dan ikuti dengan kontur bibir kamu, setelah itu pulas liquid lipstick ini ke seluruh bibir bawah kamu sampai merata dan pastikan juga supaya tidak berantakan ya"
